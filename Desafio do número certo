@@ -1,0 +1,32 @@
+import random
+
+tentativas = []
+
+def sort():
+    lista = []
+    for i in range(1, tentar + 1):
+        sorteia = int(input("Digite o {}º número: ".format(i)))
+        lista.append(sorteia)
+    sorte = random.choice(lista)
+    if sorte == 23:
+        return "{} é o número certo\nParabéns você ganhou!".format(sorte)
+    elif sorte >= 30:
+        return "{}\nInfelizmente Erraste\nO número sorteiado é muito grande".format(sorte)
+    elif sorte >= 20 and sorte <= 29:
+        return "{}\nQuase lá, tenta de novo!".format(sorte)
+    else:
+        return "{}\nDesculpa, Erraste outra vez\nO número sorteiado é muito pequeno".format(sorte)
+
+    
+while True:
+    meter_moeda = int(input("Meter moeda: "))
+    tentativas.append(meter_moeda)
+    tentar = len(tentativas)- 1
+    if meter_moeda != 50 and meter_moeda != 0:
+        print("MOEDA INVALIDA!")
+        break;
+    if meter_moeda == 0:
+        print("Tens {} tentativas ".format(tentar))
+        break;
+print(sort())
+
