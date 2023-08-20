@@ -1,0 +1,99 @@
+class ContaBancaria:
+
+#Autor: João Manuel Conquia
+
+    def __init__(self, numero_da_conta, saldo, nome):
+
+        self.numero_da_conta = numero_da_conta
+        self.saldo = saldo
+        self.nome = nome
+
+    def depositar(self):
+
+        valor = int(input("Insire o valor a ser depositado: "))
+        
+        self.saldo = self.saldo + valor
+        #print(self.saldo)
+        return "{} Depositado..." .format(valor)
+
+    def consultar(self):
+
+        return 'O seu saldo é equivalente a {} ' .format(self.saldo)
+    
+    def sacar(self):
+        
+        valor = int(input("Valor a ser retirado: "))
+        self.saldo = self.saldo - valor
+        return '{} Retirado...' .format(valor)
+        
+conta1 = ContaBancaria(935590711 , 100000000000000 , 'João Conquia')
+
+
+entrar = int(input("Entrar com o número da Conta: "))
+
+if entrar == conta1.numero_da_conta:
+    
+    def menu():
+    
+        print("Bem-Vindo Sr. {} " .format(conta1.nome))
+        print("====================================================")
+        print("                      MENU                           ")
+        print("1 - DEPOSITAR ")
+        print("2 - LEVANTAMENTO ")
+        print("3 - CONSULTAR O SALDO ")
+        print("====================================================")
+        opc = int(input("Escolhe uma opção: "))
+        if opc == 1:
+            print("1- Continuar \n2-Voltar")
+            opcc = int(input("Escolhe uma opção: "))
+            if opcc == 1:
+                print(conta1.depositar())
+                prima = int(input("Prima 0 para voltar ou 1 para Sair: "))
+                if prima == 0:
+                    menu()
+                elif prima == 1:
+                    print("Saindo...")
+                else:
+                    print("Comando Incorrecto!")
+            elif opcc == 2:
+                menu()
+            else:
+                print("Opção Inválida!")
+        elif opc == 2:
+            print("1- Continuar \n2-Voltar")
+            opcc = int(input("Escolhe uma opção: "))
+            if opcc == 1:
+                print(conta1.sacar())
+                prima = int(input("Prima 0 para voltar ou 1 para Sair: "))
+                if prima == 0:
+                    menu()
+                elif prima == 1:
+                    print("Saindo...")
+                else:
+                    print("Comando Incorrecto!")
+            elif opcc == 2:
+                menu()
+            else:
+                print("Opção Inválida!")
+        elif opc == 3:
+            print("1- Continuar \n2-Voltar")
+            opcc = int(input("Escolhe uma opção: "))
+            if opcc == 1:
+                print(conta1.consultar())
+                prima = int(input("Prima 0 para voltar ou 1 para Sair: "))
+                if prima == 0:
+                    menu()
+                elif prima == 1:
+                    print("Saindo...")
+                else:
+                    print("Comando Incorrecto!")
+            elif opcc == 2:
+                menu()
+            else:
+                print("Opção Inválida!")
+        else:
+            print("Opção Invaliida!")
+            menu()
+    menu()
+else:
+    print("Número de conta não encontrada")
