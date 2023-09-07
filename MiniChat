@@ -1,0 +1,18 @@
+import socket
+
+#Autor: João Conquia
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(('100.78.110.123' , 800))
+
+while True:
+    
+    mensagem = input("Enviar alguma coisa: ")
+    s.send(mensagem.encode())
+    b = s.recv(1024)
+    print(b.decode())
+
+    if mensagem == 'stop':
+        print("Conversa terminada")
+        s.close()
+        break
